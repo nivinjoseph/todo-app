@@ -1,4 +1,5 @@
 {
-    "debug": true,
-    "baseUrl": "http://localhost:3000"
+    "mode": "dev",
+    "port": 4000,
+    "baseUrl": "http://localhost:4000"
 }

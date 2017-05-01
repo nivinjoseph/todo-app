@@ -7,20 +7,21 @@
         "ts-build": "tsc -p .",
         "ts-build-watch": "npm run ts-build -- -w",
         "ts-build-dist": "tsc -p ./dist",
-        "x-ts-watch-build": "watch 'npm run build' ./src --wait 1 --interval 1",
         "clean-src": "find ./src -name '*.js' -delete -o -name '*.map' -delete",
         "clean-test": "find ./test -name '*.js' -delete -o -name '*.map' -delete",
         "pretest": "npm run ts-build",
         "test": "mocha --reporter spec --ui tdd --require ts-node/register './test/**/*.test.js' || true",
         "pretest-ci": "npm run pretest",
         "test-ci": "mocha --reporter spec --ui tdd --require ts-node/register './test/**/*.test.js'",
-        "x-pregit-publish": "npm run ts-build-dist && git add . && git commit -m 'preparing to publish new version'",
-        "x-git-publish": "npm version patch",
-        "x-postgit-publish": "git push",
+        "pregit-publish": "npm run ts-build-dist && git add . && git commit -m 'preparing to publish new version'",
+        "git-publish": "npm version patch",
+        "postgit-publish": "git push",
+        "prebundle": "npm run ts-build",
+        "bundle": "webpack ./src/client/app.js ./src/client/dist/bundle.js --progress=true --devtool='cheap-module-source-map'",
+        "bundle-watch": "npm run bundle -- -w",
+        "nodemon": "nodemon --debug ./src/main.js",
         "predebug": "npm run ts-build",
-        "debug": "nodemon --debug ./src/main.js",
-        "prestart": "npm run ts-build",
-        "start": "node ./src/main.js"
+        "debug": "npm run ts-build-watch & npm run bundle-watch & npm run nodemon"
     },
     "repository": {
         "type": "git",
@@ -37,7 +38,6 @@
     },
     "homepage": "https://github.com/nivinjoseph/todo-app#readme",
     "devDependencies": {
-        "@types/colors": "^1.1.2",
         "@types/mocha": "^2.2.39",
         "@types/node": "^7.0.5",
         "@types/sinon": "^1.16.35",
@@ -46,15 +46,16 @@
         "sinon": "^2.0.0-pre.6",
         "ts-node": "^2.1.0",
         "tslint": "^4.5.1",
-        "typescript": "2.2.1"
+        "typescript": "2.2.1",
+        "webpack": "^2.4.1"
     },
     "dependencies": {
-        "colors": "^1.1.2",
-        "n-config": "git+https://github.com/nivinjoseph/n-config.git",
+        "n-app": "git+https://github.com/nivinjoseph/n-app.git",
         "n-defensive": "git+https://github.com/nivinjoseph/n-defensive.git",
         "n-exception": "git+https://github.com/nivinjoseph/n-exception.git",
         "n-ext": "git+https://github.com/nivinjoseph/n-ext.git",
         "n-ject": "git+https://github.com/nivinjoseph/n-ject.git",
-        "n-web": "git+https://github.com/nivinjoseph/n-web.git"
+        "n-web": "git+https://github.com/nivinjoseph/n-web.git",
+        "reflect-metadata": "^0.1.10"
     }
 }
