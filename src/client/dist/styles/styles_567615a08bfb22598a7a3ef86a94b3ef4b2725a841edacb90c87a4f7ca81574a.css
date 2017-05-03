@@ -12620,3 +12620,6 @@ hr.on-light {
   opacity: 0;
 }
 /*# sourceMappingURL=ripples.css.map */
+.description {
+  color: aqua;
+  font-size: 5em; }

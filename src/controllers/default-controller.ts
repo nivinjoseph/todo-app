@@ -13,7 +13,8 @@ export class DefaultController extends Controller
             .include("src/client/dist/styles/bootstrap.css")
             .include("src/client/dist/styles/font-awesome.css")
             .include("src/client/dist/styles/bootstrap-material-design.css")
-            .include("src/client/dist/styles/ripples.css");
+            .include("src/client/dist/styles/ripples.css")
+            .include("src/client/dist/styles/app.css");
         
         let templates = new TemplateBundle("templates");
         templates.include("src/client");
