@@ -41,7 +41,10 @@ export class TodosViewModel extends PageViewModel
     
     public deleteTodo(todo: Todo): void
     {
-        this._todoRepository.deleteTodo(todo.id);
+        this._todoRepository
+            .deleteTodo(todo.id)
+            .then(() => this._todoRepository.getTodos())
+            .then(t => this._todos = t);
     }
     
     

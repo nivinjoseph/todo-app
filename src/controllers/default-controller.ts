@@ -11,12 +11,6 @@ export class DefaultController extends Controller
         let templates = new TemplateBundle("templates");
         templates.includeDir("src/client");
 
-        let scripts = new ScriptBundle("scripts");
-        scripts.includeFile("src/client/dist/bundle.js");
-
-        return Promise.resolve({
-            templates: templates.render(),
-            scripts: scripts.render()
-        });
+        return Promise.resolve({ templates: templates.render() });
     }
 }

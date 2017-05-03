@@ -8,7 +8,18 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--<link rel="stylesheet" href="/styles/test.css">-->
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/font-awesome.css">
+
+    <!-- Bootstrap Material Design -->
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-material-design.css">
+    <link rel="stylesheet" type="text/css" href="styles/ripples.css">
+
     <!-- Place favicon.ico in the root directory -->
 </head>
 
@@ -23,9 +34,12 @@
         <router-view></router-view>
     </div>
 
-    ${vm.templates} 
-    ${vm.scripts}
-
+    ${vm.templates}
+    
+    <script src="scripts/bundle.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/material.js"></script>
+    <script src="scripts/ripples.js"></script>
 </body>
 
 </html>

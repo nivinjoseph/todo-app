@@ -1,25 +1,21 @@
 import { ComponentViewModel, element, bind, view } from "n-app";
 import { Todo } from "../../models/todo";
 
-@element("todo-dir")
+@element("todo")
 @bind("value", "editValue", "deleteValue")    
 @view("todo-view")    
 export class TodoViewModel extends ComponentViewModel
 {
-    public get todo(): Todo { return this.ctx["value"]; }
+    public get todo(): Todo { return this.getBound<Todo>("value"); }
     
-    public edit(): void
+    
+    public editTodo(): void
     {
-        this.ctx["editValue"](this.todo);
+        this.getBound<Function>("editValue")(this.todo);
     }
     
-    public delete(): void
+    public deleteTodo(): void
     {
-        this.ctx["deleteValue"](this.todo);
-    }
-    
-    protected onCreate(): void
-    {
-        console.log("created", this.todo);
+        this.getBound<Function>("deleteValue")(this.todo);
     }
 }
