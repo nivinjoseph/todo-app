@@ -5,7 +5,7 @@ import { ConfigurationManager } from "n-config";
 
 const app = new WebApp(ConfigurationManager.getConfig<number>("port"))
     .useViewResolutionRoot("src/controllers")
-    .registerStaticFilePaths("src/client/dist")
+    .registerStaticFilePaths("src/client/static")
     .registerControllers(DefaultController);
 
 app.bootstrap();

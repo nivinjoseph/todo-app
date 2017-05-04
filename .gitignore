@@ -41,7 +41,11 @@ jspm_packages
 
 # Ignores compiled TypeScript files
 src/**/*.js
-!src/client/dist/scripts/*.js
+!src/client/static/scripts/*.js
 src/**/*.map
 test/**/*.js
 test/**/*.map
+
+# Ignores compiled css files
+src/**/*.css
+!src/client/static/styles/*.css

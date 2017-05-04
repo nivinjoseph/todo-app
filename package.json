@@ -6,10 +6,10 @@
   "scripts": {
     "ts-build": "tsc -p .",
     "ts-build-watch": "npm run ts-build -- -w",
-    "scss-build": "node-sass src/client/dist/styles/app.scss src/client/dist/styles/app.css",
-    "scss-build-watch": "npm run scss-build -- -w",
+    "scss-build": "node-sass src/client --output src/client",
+    "scss-build-watch": "npm run scss-build -- -w -r",
     "prebundle-build": "npm run ts-build",
-    "bundle-build": "webpack ./src/client/app.js ./src/client/dist/scripts/app-bundle.js --progress=true --devtool='cheap-module-source-map'",
+    "bundle-build": "webpack ./src/client/app.js ./src/client/static/scripts/app-bundle.js",
     "bundle-build-watch": "npm run bundle-build -- -w",
     "nodemon": "nodemon --ignore src/client/ --debug ./src/main.js mode=dev",
     "predebug": "npm run ts-build",

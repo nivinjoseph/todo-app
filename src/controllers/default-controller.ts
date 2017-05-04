@@ -8,24 +8,25 @@ export class DefaultController extends Controller
 {
     public execute(): Promise<any>
     {
-        let styles = new StyleBundle("styles", "src/client/dist/styles", "styles");
+        let styles = new StyleBundle("styles", "src/client/static/styles", "styles");
         styles
-            .include("src/client/dist/styles/bootstrap.css")
-            .include("src/client/dist/styles/font-awesome.css")
-            .include("src/client/dist/styles/bootstrap-material-design.css")
-            .include("src/client/dist/styles/ripples.css")
-            .include("src/client/dist/styles/app.css");
+            .include("src/client/static/styles/bootstrap.css")
+            .include("src/client/static/styles/font-awesome.css")
+            .include("src/client/static/styles/bootstrap-material-design.css")
+            .include("src/client/static/styles/ripples.css")
+            .include("src/client/pages")
+            .include("src/client/components");
         
         let templates = new TemplateBundle("templates");
         templates.include("src/client");
 
-        let scripts = new ScriptBundle("scripts", "src/client/dist/scripts", "scripts");
+        let scripts = new ScriptBundle("scripts", "src/client/static/scripts", "scripts");
         scripts
             .include("node_modules/jquery/dist/jquery.js")   
-            .include("src/client/dist/scripts/bootstrap.js")
-            .include("src/client/dist/scripts/material.js")
-            .include("src/client/dist/scripts/ripples.js")
-            .include("src/client/dist/scripts/app-bundle.js")
+            .include("src/client/static/scripts/bootstrap.js")
+            .include("src/client/static/scripts/material.js")
+            .include("src/client/static/scripts/ripples.js")
+            .include("src/client/static/scripts/app-bundle.js")
             ;
                 
         return Promise.resolve({
