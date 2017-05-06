@@ -6,7 +6,7 @@ import { Controller, httpGet, route, view, StyleBundle, TemplateBundle, ScriptBu
 @view("default-view")
 export class DefaultController extends Controller
 {
-    public execute(): Promise<any>
+    public async execute(): Promise<any>
     {
         let styles = new StyleBundle("styles", "src/client/static/styles", "styles");
         styles
@@ -29,10 +29,10 @@ export class DefaultController extends Controller
             .include("src/client/static/scripts/app-bundle.js")
             ;
                 
-        return Promise.resolve({
-            styles: styles.render(),
-            templates: templates.render(),
-            scripts: scripts.render()
-        });
+        return {
+            styles: await styles.render(),
+            templates: await templates.render(),
+            scripts: await scripts.render()
+        };
     }
 }
