@@ -25872,14 +25872,47 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const n_app_1 = __webpack_require__(4);
 const Routes = __webpack_require__(5);
+const n_ject_1 = __webpack_require__(10);
+const n_defensive_1 = __webpack_require__(0);
 let UpdateTodoViewModel = class UpdateTodoViewModel extends n_app_1.PageViewModel {
+    constructor(todoRepository, navigationService) {
+        n_defensive_1.given(todoRepository, "todoRepository").ensureHasValue();
+        n_defensive_1.given(navigationService, "navigationService").ensureHasValue();
+        super();
+        this._todoRepository = todoRepository;
+        this._navigationService = navigationService;
+        this._title = this._description = null;
+    }
+    get title() { return this._title; }
+    set title(value) { this._title = value; }
+    get description() { return this._description; }
+    set description(value) { this._description = value; }
+    save() {
+        this._todoRepository.updateTodo(this._todo.id, this._title, this._description)
+            .then(() => {
+            this._navigationService.navigate(Routes.todos, null);
+        });
+    }
+    onEnter(id) {
+        this._todoRepository.getTodos()
+            .then(todos => {
+            this._todo = todos.find(t => t.id === id);
+            this._title = this._todo.title;
+            this._description = this._todo.description;
+        });
+    }
 };
 UpdateTodoViewModel = __decorate([
     n_app_1.route(Routes.updateTodo),
-    n_app_1.view("update-todo-view")
+    n_app_1.view("update-todo-view"),
+    n_ject_1.inject("TodoRepository", "NavigationService"),
+    __metadata("design:paramtypes", [Object, Object])
 ], UpdateTodoViewModel);
 exports.UpdateTodoViewModel = UpdateTodoViewModel;
 //# sourceMappingURL=update-todo-view-model.js.map

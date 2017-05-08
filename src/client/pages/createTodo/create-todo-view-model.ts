@@ -31,6 +31,8 @@ export class CreateTodoViewModel extends PageViewModel
         this._todoRepository = todoRepository;
         this._navigationService = navigationService;
         this._dialogService = dialogService;
+        
+        this._title = this._description = null;
     }
     
     
