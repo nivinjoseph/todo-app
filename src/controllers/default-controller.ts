@@ -13,7 +13,6 @@ export class DefaultController extends Controller
             .include("src/client/static/styles/bootstrap.css")
             .include("src/client/static/styles/font-awesome.css")
             .include("src/client/static/styles/bootstrap-material-design.css")
-            .include("src/client/static/styles/ripples.css")
             .include("src/client/pages")
             .include("src/client/components");
         
@@ -24,8 +23,8 @@ export class DefaultController extends Controller
         scripts
             .include("node_modules/jquery/dist/jquery.js")   
             .include("src/client/static/scripts/bootstrap.js")
+            .include("src/client/static/scripts/arrive.js")
             .include("src/client/static/scripts/material.js")
-            .include("src/client/static/scripts/ripples.js")
             .include("src/client/static/scripts/app-bundle.js")
             ;
                 

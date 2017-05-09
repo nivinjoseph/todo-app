@@ -115,7 +115,7 @@ const exception_1 = __webpack_require__(6);
 exports.Exception = exception_1.Exception;
 const application_exception_1 = __webpack_require__(49);
 exports.ApplicationException = application_exception_1.ApplicationException;
-const argument_exception_1 = __webpack_require__(9);
+const argument_exception_1 = __webpack_require__(10);
 exports.ArgumentException = argument_exception_1.ArgumentException;
 const argument_null_exception_1 = __webpack_require__(50);
 exports.ArgumentNullException = argument_null_exception_1.ArgumentNullException;
@@ -1357,6 +1357,21 @@ exports.Exception = Exception;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const container_1 = __webpack_require__(59);
+exports.Container = container_1.Container;
+const scope_type_1 = __webpack_require__(9);
+exports.ScopeType = scope_type_1.ScopeType;
+const inject_1 = __webpack_require__(24);
+exports.inject = inject_1.inject;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 // public
 var Lifestyle;
 (function (Lifestyle) {
@@ -1368,7 +1383,7 @@ var Lifestyle;
 //# sourceMappingURL=lifestyle.js.map
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1383,7 +1398,7 @@ var ScopeType;
 //# sourceMappingURL=scope-type.js.map
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1407,21 +1422,6 @@ class ArgumentException extends exception_1.Exception {
 }
 exports.ArgumentException = ArgumentException;
 //# sourceMappingURL=argument-exception.js.map
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const container_1 = __webpack_require__(59);
-exports.Container = container_1.Container;
-const scope_type_1 = __webpack_require__(8);
-exports.ScopeType = scope_type_1.ScopeType;
-const inject_1 = __webpack_require__(24);
-exports.inject = inject_1.inject;
-//# sourceMappingURL=index.js.map
 
 /***/ }),
 /* 11 */
@@ -12290,8 +12290,8 @@ exports.view = view;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const n_defensive_1 = __webpack_require__(0);
-const scope_type_1 = __webpack_require__(8);
-const lifestyle_1 = __webpack_require__(7);
+const scope_type_1 = __webpack_require__(9);
+const lifestyle_1 = __webpack_require__(8);
 __webpack_require__(2);
 const n_exception_1 = __webpack_require__(1);
 // internal
@@ -12459,7 +12459,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const n_app_1 = __webpack_require__(4);
-const n_ject_1 = __webpack_require__(10);
+const n_ject_1 = __webpack_require__(7);
 const Routes = __webpack_require__(5);
 let CreateTodoViewModel = class CreateTodoViewModel extends n_app_1.PageViewModel {
     constructor(todoRepository, navigationService, dialogService) {
@@ -12510,7 +12510,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const n_app_1 = __webpack_require__(4);
 const n_defensive_1 = __webpack_require__(0);
 const Routes = __webpack_require__(5);
-const n_ject_1 = __webpack_require__(10);
+const n_ject_1 = __webpack_require__(7);
 let TodosViewModel = class TodosViewModel extends n_app_1.PageViewModel {
     constructor(todoRepository, navigationService, dialogService) {
         n_defensive_1.given(todoRepository, "todoRepository").ensureHasValue();
@@ -12568,7 +12568,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const n_app_1 = __webpack_require__(4);
 const Routes = __webpack_require__(5);
-const n_ject_1 = __webpack_require__(10);
+const n_ject_1 = __webpack_require__(7);
 const n_defensive_1 = __webpack_require__(0);
 let UpdateTodoViewModel = class UpdateTodoViewModel extends n_app_1.PageViewModel {
     constructor(todoRepository, navigationService) {
@@ -12670,7 +12670,7 @@ Vue.use(VueRouter);
 const config_1 = __webpack_require__(34);
 const n_defensive_1 = __webpack_require__(0);
 __webpack_require__(2);
-const n_ject_1 = __webpack_require__(10);
+const n_ject_1 = __webpack_require__(7);
 const component_manager_1 = __webpack_require__(32);
 const page_manager_1 = __webpack_require__(36);
 const n_exception_1 = __webpack_require__(1);
@@ -26581,7 +26581,7 @@ exports.ApplicationException = ApplicationException;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const argument_exception_1 = __webpack_require__(9);
+const argument_exception_1 = __webpack_require__(10);
 class ArgumentNullException extends argument_exception_1.ArgumentException {
     constructor(argName, innerException) {
         super(argName, "is NULL", innerException);
@@ -26597,7 +26597,7 @@ exports.ArgumentNullException = ArgumentNullException;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const argument_exception_1 = __webpack_require__(9);
+const argument_exception_1 = __webpack_require__(10);
 class InvalidArgumentException extends argument_exception_1.ArgumentException {
     constructor(argName, innerException) {
         super(argName, "is invalid", innerException);
@@ -27040,7 +27040,7 @@ Object.defineProperty(String.prototype, "replaceAll", {
 Object.defineProperty(exports, "__esModule", { value: true });
 const base_scope_1 = __webpack_require__(23);
 const n_defensive_1 = __webpack_require__(0);
-const scope_type_1 = __webpack_require__(8);
+const scope_type_1 = __webpack_require__(9);
 const n_exception_1 = __webpack_require__(1);
 // internal
 class ChildScope extends base_scope_1.BaseScope {
@@ -27066,7 +27066,7 @@ exports.ChildScope = ChildScope;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const lifestyle_js_1 = __webpack_require__(7);
+const lifestyle_js_1 = __webpack_require__(8);
 const n_defensive_1 = __webpack_require__(0);
 __webpack_require__(3);
 const inject_1 = __webpack_require__(24);
@@ -27108,7 +27108,7 @@ exports.ComponentRegistration = ComponentRegistration;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const n_defensive_1 = __webpack_require__(0);
-const lifestyle_1 = __webpack_require__(7);
+const lifestyle_1 = __webpack_require__(8);
 const n_exception_1 = __webpack_require__(1);
 const component_registration_1 = __webpack_require__(57);
 // internal
@@ -27180,8 +27180,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const n_defensive_1 = __webpack_require__(0);
 const base_scope_1 = __webpack_require__(23);
 const component_registry_1 = __webpack_require__(58);
-const scope_type_1 = __webpack_require__(8);
-const lifestyle_1 = __webpack_require__(7);
+const scope_type_1 = __webpack_require__(9);
+const lifestyle_1 = __webpack_require__(8);
 const child_scope_1 = __webpack_require__(56);
 const n_exception_1 = __webpack_require__(1);
 // public

@@ -207,14 +207,15 @@
           //
           // NOTE: I'm not sure we should be intervening regarding validation, this seems better as a README and snippet of code.
           //        BUT, I've left it here for backwards compatibility.
-          if (validate) {
-            if (isValid) {
-              $formGroup.removeClass("has-error");
-            }
-            else {
-              $formGroup.addClass("has-error");
-            }
-          }
+          // NJ (-)  
+        //   if (validate) {
+        //     if (isValid) {
+        //       $formGroup.removeClass("has-error");
+        //     }
+        //     else {
+        //       $formGroup.addClass("has-error");
+        //     }
+        //   }
         })
         .on("focus", ".form-control, .form-group.is-fileinput", function () {
           _addFormGroupFocus(this);
@@ -350,3 +351,8 @@
   };
 
 })(jQuery);
+
+// NJ (+)
+$(document).ready(function () {
+    $.material.init();
+});
