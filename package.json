@@ -41,6 +41,7 @@
     "@types/node": "^7.0.5",
     "@types/sinon": "^1.16.35",
     "mocha": "^3.2.0",
+    "n-design": "git+https://github.com/nivinjoseph/n-design.git",
     "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
     "onchange": "^3.2.1",
